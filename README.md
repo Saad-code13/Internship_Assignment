@@ -1,4 +1,4 @@
 # Internship_Assignment
-Laâroussi Saâdeddine
-laar.saad.eddine@gmail.com
-Morocco
+Name : Laâroussi Saâdeddine <br>
+Mail : laar.saad.eddine@gmail.com <br>
+Country : Morocco <br>
