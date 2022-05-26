@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<title>Flight price Prediction API</title>
+</head>
+<body>
+<div class="fill_form">
+	<h1>Predict Flight price</h1>
+	
+	<form action="{{ url_for('predict')}}" method="post">
+		<table>
+  		<tr>
+   		 <td><label>Choose an Airline:</label></td>
+		 <td><select type="select" name="airline"  required="required">
+		 <option value="" disabled selected>Select your option</option>
+		 {% for i in range(0,oe.categories_[0].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[0][i]}}</option>
+		 {% endfor %} 
+		</select></td> 
+		</tr>
+		
+		 <tr>
+		 <td><label>Choose a source City:</label></td>
+		 <td><select type="select" name="source_city" required="required">
+		 <option value="" disabled selected>Select your option</option>
+		 {% for i in range(0,oe.categories_[1].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[1][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose a departure time:</label></td>
+		 <td><select type="select" name="departure_time" required="required">
+			<option value="" disabled selected>Select your option</option> 
+		{% for i in range(0,oe.categories_[2].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[2][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose number of stops:</label></td>
+		 <td><select type="select" name="num_stops" required="required">
+			<option value="" disabled selected>Select your option</option>
+			{% for i in range(0,oe.categories_[3].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[3][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose arrival time:</label></td>
+		 <td><select type="select" name="arrival_time" required="required">
+			<option value="" disabled selected>Select your option</option>
+		 {% for i in range(0,oe.categories_[4].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[4][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose destination City:</label></td>
+		 <td><select type="select" name="destination_city" required="required">
+			<option value="" disabled selected>Select your option</option>
+			{% for i in range(0,oe.categories_[5].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[5][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose Class:</label></td>
+		 <td><select type="select" name="class" required="required">
+			<option value="" disabled selected>Select your option</option>
+		 {% for i in range(0,oe.categories_[6].size): %}
+		 <option value = "{{ i }}" > {{oe.categories_[6][i]}}</option>
+		 {% endfor %} 
+		</select> </td></tr>
+
+		 <tr>
+		 <td><label>Choose flight duration (in hours):</label></td>
+		 <td><input type="text" name="duration" placeholder="ex : 2.5" required="required" /> </td></tr>
+
+		 <tr>
+		 <td><label>Choose days left until flight:</label></td>
+		 <td><input type="text" name="days_left" placeholder="ex : 5" required="required" /></td></tr> 
+
+     </table>
+
+     <button type="submit" class="btn">Predict</button>
+	</form>
+
+	<br>
+   	<br>
+   	{{ prediction_text }}
+
+</div>
+
+</body>
+</html>
